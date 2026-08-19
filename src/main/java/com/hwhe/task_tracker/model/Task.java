@@ -19,15 +19,15 @@ public class Task {
   public Task(
     long id,
     String desc,
-    Status status,
-    Date createdAt,
-    Date updatedAt
+    Status status
+    // Date createdAt,
+    // Date updatedAt
   ) {
     this.id = id;
     this.desc = desc;
     this.status = status;
-    this.createdAt = createdAt;
-    this.updatedAt = updatedAt;
+    // this.createdAt = createdAt;
+    // this.updatedAt = updatedAt;
   }
 
   public long getId() {
@@ -60,5 +60,10 @@ public class Task {
 
   public void setUpdatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  @Override
+  public String toString() {
+    return String.format("Task{id=%d, desc='%s', status=%s}", id, desc, status);
   }
 }
