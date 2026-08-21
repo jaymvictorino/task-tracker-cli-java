@@ -1,6 +1,6 @@
 package com.hwhe.task_tracker.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Task {
 
@@ -13,21 +13,15 @@ public class Task {
   private long id;
   private String desc;
   private Status status;
-  private Date createdAt;
-  private Date updatedAt;
+  private LocalDate createdAt;
+  private LocalDate updatedAt;
 
-  public Task(
-    long id,
-    String desc,
-    Status status
-    // Date createdAt,
-    // Date updatedAt
-  ) {
+  public Task(long id, String desc, Status status) {
     this.id = id;
     this.desc = desc;
     this.status = status;
-    // this.createdAt = createdAt;
-    // this.updatedAt = updatedAt;
+    this.createdAt = LocalDate.now();
+    this.updatedAt = LocalDate.now();
   }
 
   public long getId() {
@@ -42,11 +36,11 @@ public class Task {
     return status;
   }
 
-  public Date getCreatedAt() {
+  public LocalDate getCreatedAt() {
     return createdAt;
   }
 
-  public Date getUpdatedAt() {
+  public LocalDate getUpdatedAt() {
     return updatedAt;
   }
 
@@ -58,12 +52,19 @@ public class Task {
     this.status = status;
   }
 
-  public void setUpdatedAt(Date updatedAt) {
+  public void setUpdatedAt(LocalDate updatedAt) {
     this.updatedAt = updatedAt;
   }
 
   @Override
   public String toString() {
-    return String.format("Task{id=%d, desc='%s', status=%s}", id, desc, status);
+    return String.format(
+      "Task{id=%d, desc='%s', status=%s, createdAt=%s, updatedAt=%s}",
+      id,
+      desc,
+      status,
+      createdAt,
+      updatedAt
+    );
   }
 }
