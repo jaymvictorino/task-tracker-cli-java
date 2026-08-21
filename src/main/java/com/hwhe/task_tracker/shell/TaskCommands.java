@@ -1,6 +1,8 @@
 package com.hwhe.task_tracker.shell;
 
 import com.hwhe.task_tracker.model.Task;
+import com.hwhe.task_tracker.service.TaskService;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.shell.core.command.annotation.Argument;
@@ -21,9 +23,7 @@ public class TaskCommands {
     @Argument(index = 0) long id,
     @Argument(index = 1) String desc
   ) {
-    Task task = new Task(id, desc, Task.Status.todo);
-    tasks.add(task);
-    System.out.println("Task added!");
+    TaskService.addTask(id, desc);
   }
 
   @Command(
@@ -86,7 +86,7 @@ public class TaskCommands {
     description = "List all tasks",
     group = "Task Commands"
   )
-  public void taskList() {
-    tasks.forEach(System.out::println);
+  public void taskList() throws IOException {
+    TaskService.listTask();
   }
 }
