@@ -30,6 +30,7 @@
 	<properties>
 		<java.version>25</java.version>
 		<spring-shell.version>4.0.2</spring-shell.version>
+		<jackson.version>3.0.0</jackson.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -42,10 +43,17 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.shell</groupId>
 			<artifactId>spring-shell-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>tools.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
@@ -66,13 +74,12 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
 			<plugin>
 				<groupId>com.github.spotbugs</groupId>
 				<artifactId>spotbugs-maven-plugin</artifactId>
 				<version>4.10.3.0</version>
 				<dependencies>
-					<!-- overwrite dependency on spotbugs if you want to specify the version of
-					spotbugs -->
 					<dependency>
 						<groupId>com.github.spotbugs</groupId>
 						<artifactId>spotbugs</artifactId>
