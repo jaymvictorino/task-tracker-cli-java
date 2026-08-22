@@ -35,11 +35,7 @@ public class TaskCommands {
     @Argument(index = 0) long id,
     @Argument(index = 1) String desc
   ) {
-    for (Task t : tasks) {
-      if (t.getId() == id) t.setDesc(desc);
-      break;
-    }
-    System.out.println("Task updated!");
+    TaskService.updateTask(id, desc);
   }
 
   @Command(
