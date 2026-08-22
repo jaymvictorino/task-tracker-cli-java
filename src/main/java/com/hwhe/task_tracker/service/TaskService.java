@@ -36,6 +36,17 @@ public class TaskService {
     System.out.printf("Task updated successfully (ID: %d)", id);
   }
 
+  public static void deleteTask(long id) {
+    for (Task t : tasks) {
+      if (t.getId() == id) {
+        tasks.remove(t);
+        break;
+      }
+    }
+    TaskFileRepository.saveTasks(tasks);
+    System.out.printf("Task deleted successfully (ID: %d)", id);
+  }
+
   public static void listTask() throws IOException {
     tasks.forEach(System.out::println);
   }
