@@ -29,8 +29,10 @@ public class TaskService {
 
   public static void updateTask(long id, String desc) {
     for (Task t : tasks) {
-      if (t.getId() == id) t.setDesc(desc);
-      break;
+      if (t.getId() == id) {
+        t.setDesc(desc);
+        break;
+      }
     }
     TaskFileRepository.saveTasks(tasks);
     System.out.printf("Task updated successfully (ID: %d)%n", id);
