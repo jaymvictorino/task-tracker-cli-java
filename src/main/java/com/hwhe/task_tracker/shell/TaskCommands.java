@@ -44,11 +44,7 @@ public class TaskCommands {
     group = "Task Commands"
   )
   public void taskDelete(@Argument(index = 0) long id) {
-    for (Task t : tasks) {
-      if (t.getId() == id) tasks.remove(t);
-      break;
-    }
-    System.out.println("Task deleted!");
+    TaskService.deleteTask(id);
   }
 
   @Command(
