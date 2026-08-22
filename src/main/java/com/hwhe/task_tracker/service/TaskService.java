@@ -24,7 +24,7 @@ public class TaskService {
     Task task = new Task(id, desc, Task.Status.todo);
     tasks.add(task);
     TaskFileRepository.saveTasks(tasks);
-    System.out.printf("Task added successfully (ID: %d)", id);
+    System.out.printf("Task added successfully (ID: %d)%n", id);
   }
 
   public static void updateTask(long id, String desc) {
@@ -33,7 +33,7 @@ public class TaskService {
       break;
     }
     TaskFileRepository.saveTasks(tasks);
-    System.out.printf("Task updated successfully (ID: %d)", id);
+    System.out.printf("Task updated successfully (ID: %d)%n", id);
   }
 
   public static void deleteTask(long id) {
@@ -44,7 +44,7 @@ public class TaskService {
       }
     }
     TaskFileRepository.saveTasks(tasks);
-    System.out.printf("Task deleted successfully (ID: %d)", id);
+    System.out.printf("Task deleted successfully (ID: %d)%n", id);
   }
 
   public static void listTask() throws IOException {
