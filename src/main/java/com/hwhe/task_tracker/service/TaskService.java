@@ -27,6 +27,15 @@ public class TaskService {
     System.out.printf("Task added successfully (ID: %d)", id);
   }
 
+  public static void updateTask(long id, String desc) {
+    for (Task t : tasks) {
+      if (t.getId() == id) t.setDesc(desc);
+      break;
+    }
+    TaskFileRepository.saveTasks(tasks);
+    System.out.printf("Task updated successfully (ID: %d)", id);
+  }
+
   public static void listTask() throws IOException {
     tasks.forEach(System.out::println);
   }
